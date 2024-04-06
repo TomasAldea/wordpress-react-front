@@ -6,7 +6,7 @@ import { ApolloProvider, ApolloClient, HttpLink, ApolloLink, InMemoryCache, conc
 
 const url = 'https://toxemic-platter.000webhostapp.com/graphql/'
 const url2 = 'http://localhost/wordpress/graphql/'
-const url3 = 'http://wp-headless.lovestoblog.com/graphql/'
+const url3 = 'https://wp-headless.lovestoblog.com/graphql/'
 const httpLink = new HttpLink({ uri: url3 });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
