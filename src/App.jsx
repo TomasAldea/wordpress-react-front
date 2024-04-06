@@ -35,6 +35,28 @@ const GET_HOMEPAGE = gql`
 `;
 
 function App() {
+
+/*   function fetchData() {
+    const url = 'http://wp-headless.lovestoblog.com/graphql/?query=query%20HomePage%20%7B%20homepages%20%7B%20nodes%20%7B%20heroHome%20%7B%20fieldGroupName%20textoHero%20tituloCabecera%20imagenHero%20%7B%20node%20%7B%20sourceUrl%20%7D%20%7D%20enlaceHero%20%7B%20target%20title%20url%20%7D%20%7D%20%7D%20%7D%20%7D';
+  
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Manejar los datos obtenidos
+        console.log(data);
+      })
+      .catch(error => {
+        // Manejar errores de red u otros errores
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+  fetchData(); */
+
   const { loading, error, data } = useQuery(GET_HOMEPAGE);
   if (loading) return
   if (error) {
@@ -42,9 +64,10 @@ function App() {
     return
   }
 
+  
+  console.log(data);
+  return
   const heroData = data.homepages.nodes[0].heroHome;
-
-  console.log(heroData);
 
   return (
     <section className=" w-full justify-center items-center flex flex-col">
